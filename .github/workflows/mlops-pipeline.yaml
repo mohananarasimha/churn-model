@@ -6,7 +6,7 @@ on:
 
 env:
     AWS_REGION: us-east-1
-    S3_BUCKET_NAME: mlops-pipeline-bucket
+    S3_BUCKET_NAME: churn-model-mona-bucket
 
 jobs:
     train-and-deploy: 

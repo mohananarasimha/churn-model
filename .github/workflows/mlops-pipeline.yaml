@@ -50,6 +50,10 @@ jobs:
                 aws s3 cp models/churn_model.pkl s3://${{ env.S3_BUCKET_NAME }}/models/churn_model.pkl --region ${{ env.AWS_REGION }}
                 echo "Model pushed to S3 successfully."
 
+            - name: Update inference.yaml with new model path
+              run: |
+                sed -i 's|storageUri: .*|storageUri: s3://${{ env.S3_BUCKET_NAME }}/model/churn_model.pkl|' inference.yaml
+
             - name: commit updated inference.yaml
               run: |
                 git config --global user.name "github-actions[bot]"

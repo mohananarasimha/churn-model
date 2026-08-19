@@ -2,7 +2,7 @@ name: MLops Pipeline
 
 on:
   push:
-    branches: [cicd]
+    branches: [main]
 
 env:
     AWS_REGION: us-east-1
@@ -56,6 +56,6 @@ jobs:
                 git config --global user.email "github-actions[bot]@users.noreply.github.com"
                 git add inference.yaml
                 git commit -m "Update inference.yaml with new model path"
-                git push origin cicd
+                git push origin main
 
 
